@@ -11,6 +11,8 @@ import sys
 from dotenv import load_dotenv
 
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+
+
 load_dotenv(os.path.join(BASE_DIR, ".env"))
 sys.path.append(BASE_DIR)
 
@@ -19,9 +21,7 @@ sys.path.append(BASE_DIR)
 config = context.config
 
 # this line is to overwrite the sqlachemy url in the alembic.ini file.
-#config.set_main_option("sqlalchemy.url", os.environ["SQLALCHEMY_DATABASE_URI"])
-config.set_main_option(
-    "sqlalchemy.url", "mysql://ambagasdowa:pekas@localhost/alembic")
+config.set_main_option("sqlalchemy.url", os.environ["SQLALCHEMY_DATABASE_URI"])
 
 # Interpret the config file for Python logging.
 # This line sets up loggers basically.
